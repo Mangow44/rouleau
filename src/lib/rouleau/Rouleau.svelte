@@ -3,27 +3,35 @@
 
 	let htmlRouleau = null;
 	let list = [
-		'Test',
-		'Oui',
-		'Là le texte est plus long',
-		"Ici aussi d'ailleurs, c'est plutôt marrant",
-		'On peut scroll ?',
-		'Ca fait beaucoup là non ?',
-		"Bon normalement c'est suffisant",
-		'On arrête ça !',
-		'Plus long !',
-		'Toujours plus',
-		'Test',
-		'Oui',
-		'Là le texte est plus long',
-		"Ici aussi d'ailleurs, c'est plutôt marrant",
-		'On peut scroll ?',
-		'Ca fait beaucoup là non ?',
-		"Bon normalement c'est suffisant",
-		'On arrête ça !',
-		'Plus long !',
-		'Toujours plus'
+		{ name: 'Test', up: 1, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 },
+		{ name: 'Test', up: 1, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 },
+		{ name: 'Test', up: 1, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 },
+		{ name: 'Test', up: 1, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 },
+		{ name: 'Test', up: 1, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 },
+		{ name: 'Test', up: 10, down: 5 },
+		{ name: 'Là le texte est plus long', up: 1, down: 5 },
+		{ name: 'Oui', up: 6, down: 5 },
+		{ name: "Ici aussi d'ailleurs, c'est plutôt marrant", up: 1, down: 1 }
 	];
+
+	list.sort((a, b) => {
+		return b.up - b.down - (a.up - a.down);
+	});
 </script>
 
 <div

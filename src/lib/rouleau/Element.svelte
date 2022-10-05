@@ -1,7 +1,8 @@
 <script>
 	import { onMount } from 'svelte';
+	import Temperature from './Temperature.svelte';
 
-	export let el = '';
+	export let el = {};
 	export let htmlRouleau = null;
 
 	let htmlDiv = null;
@@ -29,21 +30,19 @@
 		updateRotation();
 
 		htmlRouleau.addEventListener('scroll', () => {
-			console.log(htmlRouleau.scrollTop);
 			updateRotation();
 		});
+
 		window.addEventListener('resize', () => {
 			updateRotation();
 		});
 	});
-
-	$: console.log(hover);
 </script>
 
 <div
 	bind:this={htmlDiv}
-	class=" flex items-center 
-		m-auto w-full h-auto 
+	class=" flex items-center cursor-pointer
+		m-auto w-full h-auto
 		px-[1rem] shrink-0"
 	on:focus={() => console.log('focus')}
 	on:mouseover={() => {
@@ -55,30 +54,24 @@
 >
 	<p
 		bind:this={htmlText}
-		class="w-full px-[0.5rem] 
-			cursor-pointer smooth overflow-hidden
+		class="w-full pr-[2rem]
+			smooth overflow-hidden
 			text-[3.3rem] stroke text-transparent font-medium whitespace-nowrap text-ellipsis 
-			{hover ? 'scale-105 translate-x-[2.5rem]' : ''}"
+			{hover ? 'translate-x-[1rem] scale-105 stroke-color' : ''}"
 	>
-		{el}
+		{el.name}
 	</p>
-	<!-- GO FIGMA faire tuc haut bas et implémenter le nombre -->
-	<span class="smooth bg-violet-300 w-[20%] h-full {hover ? 'scale-120 translate-x-[2.7rem]' : ''}">
-		ok</span
-	>
+
+	<Temperature bind:el bind:hover />
 </div>
 
 <style>
-	.smooth {
-		transition: all 0.5s ease;
-	}
-
 	.stroke {
 		-webkit-text-stroke-width: 1px;
 		-webkit-text-stroke-color: white;
 	}
 
-	.stroke:hover {
+	.stroke-color {
 		color: white;
 	}
 </style>
